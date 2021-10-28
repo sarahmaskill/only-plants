@@ -1,5 +1,5 @@
 {
-  "name": "museum-paintings",
+  "name": "only-plants",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,5 +20,14 @@
     "handlebars": "^4.7.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahmaskill/only-plants.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sarahmaskill/only-plants/issues"
+  },
+  "homepage": "https://github.com/sarahmaskill/only-plants#readme"
 }
