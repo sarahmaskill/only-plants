@@ -1,3 +1,5 @@
-DROP DATABASE IF EXISTS onlyplants_db;
+DROP DATABASE IF EXISTS onlyPlants_db;
 
-CREATE DATABASE onlyplants_db;
+CREATE DATABASE onlyPlants_db;
+
+USE onlyPlants_db;
