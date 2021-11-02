@@ -1,0 +1,62 @@
+<style>
+    aside{
+        height: 100vh;
+        width: 11vw;
+        border: greenyellow solid 2px;
+        
+        
+    }
+.nav-text  {
+        text-decoration: none;
+        color: #00D466;
+        font-weight: bolder;
+        font-size: 2.5rem;
+        text-align: center;
+        
+    }
+body{
+    background-color: #002A14;
+}
+.profile-pic{
+    height: 10rem;
+    background-color: #00D466;
+    border-radius: 50%;
+}
+.card {
+    background-color: greenyellow;
+}
+
+
+</style>
+<aside>
+<div class="row">
+    <div class="col-4 nav-text">
+        <div class="d-flex flex-column">
+            <a class ="nav-text " href="/">Only Plants</a>
+            <div class="profile-pic align-self-center"></div>
+        
+            <div class="nav-text align-self-center">Profile</div>
+            <div class='nav-text align-self-center' >
+            <a class='nav-text' href="/login">Login</a> 
+            </div>
+            {{#if loggedIn}}
+            <button id="logout" class="btn-no-style nav-text">Logout</button>
+            {{else}}
+            {{/if}} 
+            </div>
+        </div> 
+        <div class="col-8">
+</aside>
+            <div class="card">
+            <div class="card-body">
+                This is some text within a card body.
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    </div>
+
