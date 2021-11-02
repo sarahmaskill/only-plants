@@ -1,10 +1,11 @@
-const {User} = require('../models/User')
+const User = require('../models/User')
 
 
 const userData = [
    {
        userName: 'Alex',
-       password: 'SecretPassword124'
+       password: 'SecretPassword124',
+       
    },
 
    {
@@ -14,7 +15,7 @@ const userData = [
     },
 
     {
-        userName: 'Sarah',
+        userName: 'Miguel',
         password: 'SecretPassword1324'
     },
 
