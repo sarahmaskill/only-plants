@@ -24,7 +24,7 @@ Plant.init( {
     },
     waterSchedule: {
       type: DataTypes.STRING,
-      allowNull: false 
+      allowNull: false,
     },
     outsidePlant: {
         type: DataTypes.BOOLEAN,
@@ -33,14 +33,21 @@ Plant.init( {
     lastWatered: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    } 
+    },
+    ownerId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model:'user',
+            key: "id"
+        }
+    }
 
 }, {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'plant',
+        modelName: 'Plant',
 })
 
 module.exports = Plant
