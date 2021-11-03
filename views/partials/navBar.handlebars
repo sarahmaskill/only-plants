@@ -1,0 +1,103 @@
+<style>
+
+hr{ 
+    background-color: #464646;
+    height: 1px;
+    border: none;
+}
+
+
+.menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: #fff
+}
+#nav-menu {
+    background-color: #212121;
+    width: 258px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    transition: 850ms;
+
+}
+#nav-menu.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-text  {
+        display: flex;
+        justify-content: start;
+        list-style: none;
+        height: 50px;
+        padding: 1rem;
+    }
+.nav-text a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+}
+.nav-text:hover {
+    background-color: rgb(144,144,144,.219);
+    cursor: pointer;
+
+}
+.nav-menu-items {
+    width: 100%;
+}
+.nav-icon {
+    padding-right: 1rem;
+    color: #909090;
+}
+
+#navbar-toggle {
+    background-color: rgba(211, 211, 211, 0.02);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+#navbar-toggle h1 {
+    color: #fff;
+
+}
+#navbar-toggle a {
+    text-decoration: none;
+
+}
+.fa-bars {
+    color: #fff;
+}
+.nav-section{
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+</style>
+<div id="navbar">
+        <a href="#" class="menu-bars" id="show-menu">
+        <i class="fas fa-bars"></i>
+        </a>
+    </div>
+    <nav id="nav-menu">
+        <ul class="nav-menu-items">
+            <div id="navbar-toggle">
+                <a href="#" class="menu-bars" id="hide-menu">
+                    <i class="fas fa-bars nav-icon"></i>   
+                </a>
+            </div>
+            <hr />
+                <div class="nav-section">
+                    <li class="nav-text"><a href="/"><i class="fas fa-home nav-icon"></i>Only Plants</a></li>
+                    <li class="nav-text"><a href="#"><i class="fas fa-user nav-icon"></i>Profile</a></li>
+                    <li class="nav-text key"><a href="/login"><i class="fas fa-key nav-icon"></i>Login</a></li>
+                </div>
+
+        </ul>
+    </nav>

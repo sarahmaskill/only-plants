@@ -1,0 +1,54 @@
+<style>
+*{box-sizing: border-box;
+  margin:0 ;
+  padding: 0;
+  
+}
+
+body{
+    background-color: #002A14;
+}
+ul{
+    padding-left: 0;
+}
+.userPost {
+        height: 100px;
+        width: 100%;   
+    }
+textarea{
+    background-color:var(--primary) ;
+    color: var(--font);
+    font-weight: bold;
+    border: none;
+}
+.userPostContainer{
+    border: lightgreen 3px solid;
+}
+#postBtn {
+    padding: .22rem;
+    width: 20%;
+    border-radius: 25px;
+    margin-left: 10px;
+    background-color: lightgreen;
+}
+textarea{
+    outline: none;
+}
+</style>
+    {{>navBar}}
+<div class="container userPostContainer">
+    <div class="row userPost">
+            <textarea placeholder="Hello tell us more about your great plants!"id="post-text" cols="10" rows="0">
+            </textarea>
+</div>
+</div>
+<div class="container d-flex justify-content-end">
+    <button id="postBtn">Post</button>
+</div>
+    {{>post}}
+    {{#if loggedIn}}
+
+    {{/if}}
+    <script src="./js/homepage.js"></script>
+  
+

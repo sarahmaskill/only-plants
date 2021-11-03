@@ -1,4 +1,4 @@
-const {Plant} = require('../models/plantData')
+const Plant = require('../models/plantData')
 
 
 const plantData = [
@@ -7,7 +7,9 @@ const plantData = [
         species: 'Autumn Olive',
         waterSchedule: 'Every Other Day',
         outsidePlant: false,
-        lastWatered: 1
+        lastWatered: 1,
+        owner_id: 1
+        
     },
 
     {
@@ -15,7 +17,8 @@ const plantData = [
         species: 'Cucumber',
         waterSchedule: 'Every Other Day',
         outsidePlant: true,
-        lastWatered: 1
+        lastWatered: 1,
+        owner_id: 1
     },
 ]
 
