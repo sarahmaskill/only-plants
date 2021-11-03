@@ -1,22 +1,82 @@
-<style>
-    .userPostContainer{
-        color: #00D466;
-        font-weight: bold;
-    }
-   
-</style>
+  <style>
+      /* post */
+.post__avatar img {
+  border-radius: 50%;
+  height: 40px;
+}
 
-<div class="container mt-3 userPostContainer">
-    <div class="row userPost">
-            <div id="other-user-post" cols="10" rows="0">
-                My plant gerald is great
+.post {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--twitter-background);
+  padding-bottom: 10px;
+}
+
+.post__body img {
+  width: 450px;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post__badge {
+  font-size: 14px !important;
+  color: var(--twitter-color);
+  margin-right: 5px;
+}
+
+.post__headerSpecial {
+  font-weight: 600;
+  font-size: 12px;
+  color: gray;
+}
+
+.post__headerText h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.post__headerDescription {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.post__body {
+  flex: 1;
+  padding: 10px;
+}
+
+.post__avatar {
+  padding: 20px;
+}
+  </style>
+  
+  <div class="post">
+        <div class="post__avatar">
+          {{userAvatar}}
+        </div>
+        <div class="post__body">
+          <div class="post__header">
+            <div class="post__headerText">
+              <h3 class="userNameText">
+                {{userName}}
+                <span class="post__headerSpecial">
+              </h3>
             </div>
+            <div class="post__headerDescription">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </div>
-            <div class="likes d-flex justify-content-end">
-                <div>
-                Upvotes: 5<i class=" ms-1 fas fa-arrow-up"></i>
-                </div>
+          </div>
+          {{#if post-image}}
+         {{post-image}}
+         {{else}}
+         {{/if}}
+        </div>
+        
+      </div>
     </div>
-</div>
-
-
