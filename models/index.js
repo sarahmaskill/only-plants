@@ -23,4 +23,4 @@ User.hasMany(Post, {
 Post.belongsTo(User, {
     foreignKey: "owner_id",
 })
- module.exports = {Plant, User};
+ module.exports = {Plant, User, Post};

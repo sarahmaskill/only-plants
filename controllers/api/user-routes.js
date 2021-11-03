@@ -70,4 +70,6 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//Get User Profile save for last
+
 module.exports = router;
