@@ -1,10 +1,17 @@
-<div class="row justify-space-between-md">
+<style>
+  body{background-color: var(--primary);}
+ .login-card{
+   background-color: lightgreen;
+ }
+</style>
+{{>navBar}}
+<div class="container loginForm d-flex justify-content-evenly align-items-center">
   <div class="login-card">
     <h2 class="page-title">Login</h2>
     <form class="form login-form">
       <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
+        <label for="email-login">Username:</label>
+        <input class="form-input" type="text" id="userName-login" />
       </div>
       <div class="form-group">
         <label for="password-login">Password:</label>
@@ -35,6 +42,7 @@
       </div>
     </form>
   </div>
-</div>
 
+
+</div>
 <script src="./js/login.js"></script>

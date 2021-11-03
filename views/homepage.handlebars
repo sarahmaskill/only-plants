@@ -1,50 +1,54 @@
 <style>
-
-.container{
-   border: 2px green solid;
+*{box-sizing: border-box;
+  margin:0 ;
+  padding: 0;
+  
 }
 
-.nav-text  {
-        text-decoration: none;
-        color: #00D466;
-        font-weight: bolder;
-        font-size: 2.5rem;
-        text-align: center;
-        
-    }
 body{
     background-color: #002A14;
 }
-.profile-pic{
-    height: 10rem;
-    background-color: #00D466;
-    border-radius: 50%;
+ul{
+    padding-left: 0;
 }
-.card {
-    background-color: greenyellow;
+.userPost {
+        height: 100px;
+        width: 100%;   
+    }
+textarea{
+    background-color:var(--primary) ;
+    color: var(--font);
+    font-weight: bold;
+    border: none;
 }
-
-
+.userPostContainer{
+    border: lightgreen 3px solid;
+}
+#postBtn {
+    padding: .22rem;
+    width: 20%;
+    border-radius: 25px;
+    margin-left: 10px;
+    background-color: lightgreen;
+}
+textarea{
+    outline: none;
+}
 </style>
-
-<div class="container d-flex">
-<div class="row">
-    <div class="col-4 nav-text">
-            <a class ="nav-text " href="/">Only Plants</a>
-            <div class="nav-text align-self-center">Profile</div>
-            <div class='nav-text align-self-center' >
-            <a class='nav-text' href="/login">Login</a> 
-            </div>
-            {{#if loggedIn}}
-            <button id="logout" class="btn-no-style nav-text">Logout</button>
-            {{else}}
-            {{/if}} 
-            </div>
-        </div> 
-    <div class="col-8">
-    </div>
+    {{>navBar}}
+<div class="container userPostContainer">
+    <div class="row userPost">
+            <textarea placeholder="Hello tell us more about your great plants!"id="post-text" cols="10" rows="0">
+            </textarea>
+</div>
+</div>
+<div class="container d-flex justify-content-end">
+    <button id="postBtn">Post</button>
+</div>
+    {{>post}}
     {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
+
     {{/if}}
-    </div>
+    <script src="./js/homepage.js"></script>
+  
 
