@@ -25,13 +25,21 @@ Post.init(
         likes: {
             type: DataTypes.INTEGER,
 
+        },
+        ownerId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model:'user',
+                key: "id"
+            },
         }
     },
+    
         {
         sequelize,
             timestamps: false,
             freezeTableName: true,
-            underscored: true,
+            underscored: false,
             modelName: 'post',
     
         }

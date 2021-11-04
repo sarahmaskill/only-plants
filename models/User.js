@@ -28,21 +28,21 @@ User.init(
           msg: 'Please enter a valid UserName'
         },
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true,
-        },
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
       },
+    },
 
-      hashedPassword: {
-        type: DataTypes.STRING(64),
-        is: /^[0-9a-f]{64}$/i,
-        validate: {
-          len: [5]
-        },
+    hashedPassword: {
+      type: DataTypes.STRING(64),
+      is: /^[0-9a-f]{64}$/i,
+      validate: {
+        len: [5]
       },
     },
   }, 
@@ -56,7 +56,7 @@ User.init(
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'user',
   }
 )
