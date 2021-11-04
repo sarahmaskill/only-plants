@@ -74,7 +74,6 @@ body {
 
   min-width: 250px;
   margin-top: 20px;
-  padding-left: 20px;
   padding-right: 20px;
 }
 
@@ -85,7 +84,7 @@ body {
 
 /* feed */
 .feed {
-  flex: 0.5;
+  flex: 1.5;
   border-right: 1px solid var(--twitter-background);
   min-width: fit-content;
   overflow-y: scroll;
@@ -157,7 +156,18 @@ body {
   margin-left: auto;
 }
 
-
+.aside-container{
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.weatherHeader{
+  font-size: 18px;
+  font-weight: 800;
+}
 
 /* widgets */
 .widgets {
@@ -189,12 +199,15 @@ body {
   padding: 20px;
   background-color: #f5f8fa;
   border-radius: 20px;
+  height: 50vh;
+  width: 100%;
 }
 
 .widgets__widgetContainer h2 {
   font-size: 18px;
   font-weight: 800;
 }
+
 .userNameText{
     font-weight: bold;
     font-size: 1.2rem;
