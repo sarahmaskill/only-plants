@@ -5,6 +5,7 @@ const postData = [
     {
         body: 'Hello only Plants',
         likes: 1,
+        ownerId: 1,
     }
 ]
 
