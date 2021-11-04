@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class User extends Model {
   checkPassword(loginPw) {
-    return bcrypt.compareSync(login, this.password)
+    return bcrypt.compareSync(loginPw, this.password)
   }
 }
 
@@ -38,7 +38,7 @@ User.init(
       },
     },
 
-    hashedPassword: {
+    password: {
       type: DataTypes.STRING(64),
       is: /^[0-9a-f]{64}$/i,
       validate: {
@@ -48,8 +48,17 @@ User.init(
   }, 
   {
     hooks: {
+      beforeBulkCreate: async (newUsers) => {
+          const users = []
+          for (const user of newUsers){
+            user.password = await bcrypt.hash(user.password, 5);
+            users.push(user);
+          }
+          return users
+      },
       beforeCreate: async (newUserData) => {
           newUserData.password = await bcrypt.hash(newUserData.password, 5);
+          console.log(newUserData)
           return newUserData;
       },
     },

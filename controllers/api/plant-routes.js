@@ -14,7 +14,7 @@ const withAuth = require('../../utils/auth');
         'waterSchedule',
         'outsidePlant',
         'lastWatered',
-        'owner_id'
+        'ownerId'
     ],
     include: [{
         model: User,
@@ -42,7 +42,7 @@ router.get('/userGarden', withAuth, (req, res) => {
           'waterSchedule',
           'outsidePlant',
           'lastWatered',
-          'owner_id'
+          'ownerId'
       ],
       include: [{
           model: User,
