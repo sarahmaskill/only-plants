@@ -31,13 +31,19 @@
     </div>
   
   {{{body}}}
+<div class="aside-container">
    <div class="widgets__widgetContainer">
+        <h2>Today's Forecast</h2>
+          <h5 class="card-title" id="card-title1"><span id="dateDay1"></span></h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="weather-icon1"></h6>
+        <p>Temp:<span id="day1Temp"></span></p>
+        <p>Wind:<span id="day1Wind"></span></p>
+        <p>Humidity:<span id="day1Humidity"></span></p>  
+</div>
+       <div class="widgets__widgetContainer">
         <h2>Joke Of The Day</h2>
         <blockquote class="twitter-tweet">
         </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-    </div>
 </body>
 
 <script src="./js/homepage.js"></script>

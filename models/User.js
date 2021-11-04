@@ -10,6 +10,9 @@ class User extends Model {
 
 User.init(
   {
+    state: {
+      type: DataTypes.STRING,
+    },
 
     id: {
       type: DataTypes.INTEGER,
@@ -37,7 +40,7 @@ User.init(
         isEmail: true,
       },
     },
-
+   
     password: {
       type: DataTypes.STRING(64),
       is: /^[0-9a-f]{64}$/i,
