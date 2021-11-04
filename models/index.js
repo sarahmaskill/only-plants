@@ -45,4 +45,4 @@ User.findAll({include: [{
     .catch(e => {
         console.log(e)
     })
- module.exports = {Plant, User};
+ module.exports = {Plant, User, Post};
