@@ -37,6 +37,22 @@
 .post__avatar {
   padding: 20px;
 }
+
+.userNameText{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.block-body {
+  background-color: #f5f8fa;
+}
+.roots {
+  font-weight: bold;
+  text-align: end;
+}
+.fa-flower-tulip {
+  width: 10px;
+}
+
   </style>
   
   <div class="post">
@@ -45,8 +61,13 @@
         </div>
         <div class="post__body">
           <div class="post__header">
-          <h3 class="userNameText">{{postedBy}}</h3>
+          <h3 class="userNameText">@{{postedBy}}</h3>
+          <blockquote class="block-body">
           {{body}}
+          </blockquote>
+        <div class="roots">
+          Roots:{{roots}}
+        </div>
           </div>
           {{!-- {{#if post-image}}
          {{post-image}}

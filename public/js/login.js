@@ -4,6 +4,7 @@ const loginFormHandler = async (event) => {
   const userName = document.getElementById('userName-login').value.trim();
   const password = document.getElementById('password-login').value.trim();
 
+
   if (userName && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -26,13 +27,14 @@ const signupFormHandler = async (event) => {
   const email = document.getElementById('email-signup').value.trim();
   const password = document.getElementById('password-signup').value.trim();
   const state = document.getElementById('inputGroupSelect01').value
+  const city = document.getElementById('city-registration').value
   console.log(state)
  
 
-  if (userName && email && password && state) {
+  if (userName && email && password && state && city) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ userName, email, password, state }),
+      body: JSON.stringify({ userName, email, password, state, city }),
       headers: { 'Content-Type': 'application/json' },
     });
 

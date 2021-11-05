@@ -22,7 +22,7 @@ Post.init(
             type: DataTypes.DATEONLY,
             defaultValue: Sequelize.NOW 
         },
-        upVotes: {
+        roots: {
             type: DataTypes.INTEGER,
 
         },

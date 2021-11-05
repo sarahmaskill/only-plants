@@ -15,7 +15,7 @@ const withAuth = require('../../utils/auth');
         'waterSchedule',
         'outsidePlant',
         'lastWatered',
-        'ownerId'
+        'plantedBy'
     ],
     include: [{
         model: User,
@@ -48,12 +48,9 @@ router.get('/garden', withAuth, (req, res) => {
           'waterSchedule',
           'outsidePlant',
           'lastWatered',
-          'ownerId'
+          'plantedBy'
       ],
-      include: [{
-          model: User,
-          attributes: ['userName']
-      }]
+      
     })
     .then(dbPlantData => {
         const garden = dbPlantData.map(plant => plant.get({ plain:true }));

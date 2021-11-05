@@ -6,10 +6,11 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
   try {
       const dbPostData = await Post.findAll({
-          attributes: ['body', 'likes', 'postedBy'],
+          
+          attributes: ['body', 'roots', 'postedBy'],
+          
         });
         const posts =  dbPostData.map((posts) =>{
-         
         return posts.get({ plain: true })
         });
         
