@@ -10,17 +10,14 @@ class User extends Model {
 
 User.init(
   {
-    state: {
-      type: DataTypes.STRING,
-    },
-
+    
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       unique: true,
     },
-
+    
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,7 +37,7 @@ User.init(
         isEmail: true,
       },
     },
-   
+    
     password: {
       type: DataTypes.STRING(64),
       is: /^[0-9a-f]{64}$/i,
@@ -48,6 +45,16 @@ User.init(
         len: [5]
       },
     },
+
+    state: {
+      type: DataTypes.STRING,
+    },
+
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
   }, 
   {
     hooks: {
