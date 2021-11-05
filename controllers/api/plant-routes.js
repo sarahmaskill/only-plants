@@ -10,6 +10,7 @@ const withAuth = require('../../utils/auth');
     },
     attributes:[
         'name',
+        'id',
         'species',
         'waterSchedule',
         'outsidePlant',
@@ -61,7 +62,7 @@ router.get('/garden', withAuth, (req, res) => {
    });
 
 //add new plant
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newPlant = await Plant.create({
       ...req.body,
@@ -75,12 +76,12 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //delete plant
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const plantData = await Plant.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
 
