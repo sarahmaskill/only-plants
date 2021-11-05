@@ -3,7 +3,7 @@ const { Plant, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Get 1 User Plant
- router.get('/:id', withAuth, (req, res) => {
+ router.get('/:id',(req, res) => {
   Plant.findOne({
     where:{
         id: req.params.id
@@ -21,8 +21,8 @@ const withAuth = require('../../utils/auth');
         attributes: ['userName']
     }]
   })
-  .then(dbPlantData => {
-      const plants = dbPlantData.map(plant => plant.get({ plain:true }));
+  .then(dbPlantData => { 
+      const plants = [dbPlantData].map(plant => plant.get({ plain:true }));
       res.render('userPlantProfile', {plants, loggedIn: true});
   })
   .catch(err => {
