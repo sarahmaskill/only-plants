@@ -22,7 +22,9 @@ const withAuth = require('../../utils/auth');
     }]
   })
   .then(dbPlantData => {
+      
       const plants = dbPlantData.map(plant => plant.get({ plain:true }));
+      console.log(plants)
       res.render('userPlantProfile', {plants, loggedIn: true});
   })
   .catch(err => {
