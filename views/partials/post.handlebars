@@ -7,9 +7,9 @@
 
 .post {
   display: flex;
-  align-items: flex-start;
   border-bottom: 1px solid var(--twitter-background);
   padding-bottom: 10px;
+  width: 100%;
 }
 
 .post__body img {
@@ -22,23 +22,6 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-}
-
-.post__badge {
-  font-size: 14px !important;
-  color: var(--twitter-color);
-  margin-right: 5px;
-}
-
-.post__headerSpecial {
-  font-weight: 600;
-  font-size: 12px;
-  color: gray;
-}
-
-.post__headerText h3 {
-  font-size: 15px;
-  margin-bottom: 5px;
 }
 
 .post__headerDescription {
@@ -58,25 +41,16 @@
   
   <div class="post">
         <div class="post__avatar">
-          {{userAvatar}}
+          {{!-- {{userAvatar}} --}}
         </div>
         <div class="post__body">
           <div class="post__header">
-            <div class="post__headerText">
-              <h3 class="userNameText">
-                {{userName}}
-                <span class="post__headerSpecial">
-              </h3>
-            </div>
-            <div class="post__headerDescription">
-              {{body}}
-            </div>
+          <h3 class="userNameText">{{userName}}</h3>
+          {{body}}
           </div>
-          {{#if post-image}}
+          {{!-- {{#if post-image}}
          {{post-image}}
          {{else}}
-         {{/if}}
+         {{/if}} --}}
         </div>
-        
       </div>
-    </div>
