@@ -1,21 +1,23 @@
+const {User , Plant, Post} = require('../models')
 const router = require('express').Router();
-router.get('/', (req,res) => {
-  res.render('homepage')
-})
+
 
 //pull posts for front page
 router.get('/', async (req, res) => {
   try {
       const dbPostData = await Post.findAll({
-          attributes: ['body', 'likes']
-      });
-      const posts = dbPostData.map((posts) =>
-          posts.get({ plain: true })
-      );
-
-      res.render('homepage', {
-          posts
-      })
+          attributes: ['body', 'likes', 'ownerId']
+        });
+       
+        const posts =  dbPostData.map((posts) =>{
+          return posts.get({ plain: true })
+        }
+        );
+        
+        res.render('homepage', {
+          post: posts,
+        })
+        
   } catch (err) {
       console.log(err);
       res.status(500).json(err);

@@ -16,6 +16,11 @@
   box-sizing: border-box;
 }
 
+#home{
+  text-decoration: none;
+  color: black;
+}
+
 body {
   --twitter-background: #e6ecf0;
 }
@@ -189,9 +194,6 @@ body {
   background-color: var(--twitter-background);
 }
 
-.widgets__searchIcon {
-  color: gray;
-}
 
 .widgets__widgetContainer {
   margin-top: 15px;
