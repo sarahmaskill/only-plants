@@ -22,7 +22,7 @@ Post.init(
             type: DataTypes.DATEONLY,
             defaultValue: Sequelize.NOW 
         },
-        likes: {
+        upVotes: {
             type: DataTypes.INTEGER,
 
         },

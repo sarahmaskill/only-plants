@@ -4,17 +4,17 @@ const Post = require('../models/Post')
 const postData = [
     {
         body: 'Hello only Plants',
-        likes: 1,
+        upVotes: 1,
         postedBy: 'Alex'
     },
     {  
         body: 'The future of the plant',
-        likes: 5,
+        upVotes: 5,
         postedBy: 'Sarah'    
     },
     {
         body: 'Plants versus Us',
-        likes: 3,
+        upVotes: 3,
         postedBy: 'Miguel'
     }
 ]
