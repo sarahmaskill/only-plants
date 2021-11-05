@@ -5,17 +5,17 @@ const postData = [
     {
         body: 'Hello only Plants',
         likes: 1,
-        ownerId: 1,
+        postedBy: 'Alex'
     },
     {  
-            body: 'The future of the plant',
-            likes: 5,
-            ownerId: 1,    
+        body: 'The future of the plant',
+        likes: 5,
+        postedBy: 'Sarah'    
     },
     {
         body: 'Plants versus Us',
         likes: 3,
-        ownerId: 2
+        postedBy: 'Miguel'
     }
 ]
 

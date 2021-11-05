@@ -17,7 +17,6 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
       unique: true,
     },
@@ -26,6 +25,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      primaryKey: true,
       validate: {
         notNull: {
           msg: 'Please enter a valid UserName'

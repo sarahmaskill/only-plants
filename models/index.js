@@ -4,24 +4,24 @@ const Post = require('./Post')
 
 
 User.hasMany(Plant, {
-    foreignKey: 'ownerId',
+    foreignKey: 'userName',
     onDelete: "CASCADE"
     
 })
 
 Plant.belongsTo(User, {
-    foreignKey: 'ownerId',
+    foreignKey: 'userName',
     
 })
 
 
 User.hasMany(Post, {
-    foreignKey: 'ownerId',
+    foreignKey: 'userName',
     onDelete: "CASCADE",
 })
 
 Post.belongsTo(User, {
-    foreignKey: "ownerId",
+    foreignKey: "userName",
 })
 
 
