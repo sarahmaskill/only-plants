@@ -1,0 +1,24 @@
+<style>
+.your-garden-text {
+    text-align: center;
+    font-size: 45px;
+    font-weight: bolder;
+    height: 100px;
+    background-color:#f5f8fa;
+    border-radius: 25px;
+    border: 1px solid lightgreen;
+    )
+}
+
+</style>
+<div class="container-fluid d-flex flex-column">
+<div class="container your-garden-text">
+Your Garden
+</div>
+<div class="row mt-3">
+    {{#each plant}}
+    {{>plantCard}}
+    {{/each}}
+</div>
+</div>
+
