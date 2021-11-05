@@ -6,16 +6,17 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
   try {
       const dbPostData = await Post.findAll({
-          attributes: ['body', 'likes', 'ownerId']
+          attributes: ['body', 'likes', 'postedBy'],
         });
-       
         const posts =  dbPostData.map((posts) =>{
-          return posts.get({ plain: true })
-        }
-        );
+         
+        return posts.get({ plain: true })
+        });
         
+        console.log(posts)
         res.render('homepage', {
           post: posts,
+         
         })
         
   } catch (err) {

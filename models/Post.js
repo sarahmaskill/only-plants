@@ -26,11 +26,11 @@ Post.init(
             type: DataTypes.INTEGER,
 
         },
-        ownerId: {
-            type: DataTypes.INTEGER,
+        postedBy: {
+            type: DataTypes.STRING,
             references: {
                 model:'user',
-                key: "id"
+                key: "userName"
             },
         }
     },

@@ -34,11 +34,11 @@ Plant.init( {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    ownerId: {
-        type: DataTypes.INTEGER,
+    plantedBy: {
+        type: DataTypes.STRING,
         references: {
             model:'user',
-            key: "id"
+            key: "userName"
         }
     }
 
