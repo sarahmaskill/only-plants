@@ -3,13 +3,14 @@ const { Plant, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Get 1 User Plant
- router.get('/:id', withAuth, (req, res) => {
+ router.get('/:id',(req, res) => {
   Plant.findOne({
     where:{
         id: req.params.id
     },
     attributes:[
         'name',
+        'id',
         'species',
         'waterSchedule',
         'outsidePlant',
@@ -21,10 +22,12 @@ const withAuth = require('../../utils/auth');
         attributes: ['userName']
     }]
   })
+
   .then(dbPlantData => {
       
       const plants = dbPlantData.map(plant => plant.get({ plain:true }));
       console.log(plants)
+    
       res.render('userPlantProfile', {plants, loggedIn: true});
   })
   .catch(err => {
@@ -63,7 +66,7 @@ router.get('/garden', withAuth, (req, res) => {
    });
 
 //add new plant
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newPlant = await Plant.create({
       ...req.body,
@@ -77,12 +80,12 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //delete plant
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const plantData = await Plant.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
 
