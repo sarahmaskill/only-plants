@@ -50,7 +50,10 @@ router.get('/garden', withAuth, (req, res) => {
           'lastWatered',
           'plantedBy'
       ],
-      
+      include: [{
+          model: User,
+          attributes: ['userName']
+      }]
     })
     .then(dbPlantData => {
         const garden = dbPlantData.map(plant => plant.get({ plain:true }));
