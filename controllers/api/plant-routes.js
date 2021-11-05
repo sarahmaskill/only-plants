@@ -57,7 +57,6 @@ router.get('/garden', withAuth, (req, res) => {
     })
     .then(dbPlantData => {
         const garden = dbPlantData.map(plant => plant.get({ plain:true }));
-        
         res.render('userGarden', {garden, loggedIn: true});
     })
     .catch(err => {

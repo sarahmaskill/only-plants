@@ -38,6 +38,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
+router.get('/userGarden', (req, res) => {
+  res.render('userGarden')
+})
 
 module.exports = router;
