@@ -10,10 +10,42 @@
         )
     }
 </style>
+ {{!-- <style>
+    /* Image Designing Propoerties */
+    .thumb {
+        height: 75px;
+        border: 1px solid #000;
+        margin: 10px 5px 0 0;
+    }
+</style> --}}
+
+
 <div class="container-fluid d-flex flex-column">
     <div class="container your-garden-text">
         Your Garden
     </div>
+
+ <script>
+ window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');
+          img.onload = () => {
+              URL.revokeObjectURL(img.src);  
+          }
+        console.log(this.files)
+        img.src = URL.createObjectURL(this.files[0]); 
+      }
+  });
+
+ });
+
+</script> 
+
+
+<input type='file' />
+</br><img id="myImg" src="#" alt="your image" height=200 width=100>
+
     <div class="row mt-3">
 
         {{>plantCard}}
@@ -37,6 +69,16 @@
                 </div>
             </form>
 
+<div class="card mt-5">
+<div class="tweetBox">
+        <form>
+          <div class="tweetbox__input">
+          <img src="img_avatar.png" alt="Avatar" class="avatar">
+            <input type="text" placeholder="Personal Post" />
+          </div>
+          <button class="tweetBox__tweetButton">Plant Me</button>
+        </form>
+      </div>
 
         </div>
 
@@ -58,5 +100,6 @@
         {{/if}}
     </div>
 </div>
+
 
 <script src="./js/plant.js"></script>
