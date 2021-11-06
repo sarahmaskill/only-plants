@@ -35,7 +35,8 @@
 }
 
 .post__avatar {
-  padding: 20px;
+  width: 75px;
+  height: 75px;
 }
 
 .userNameText{
@@ -56,11 +57,21 @@
   width: 10px;
 }
 
+.bi-person-circle{
+  color: lightgray;
+  height: 100px;
+  display: inline-block;
+  transform: scale(3.5);
+  margin-top: 142px;
+  margin-left: 23px;
+  color:lightslategray
+}
+
   </style>
   
   <div class="post">
         <div class="post__avatar">
-          {{!-- {{userAvatar}} --}}
+         <i class="bi bi-person-circle"></i>
         </div>
         <div class="post__body">
           <div class="post__header">
