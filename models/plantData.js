@@ -34,11 +34,11 @@ Plant.init( {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    plantedBy: {
-        type: DataTypes.STRING,
+    user_id: {
+        type: DataTypes.INTEGER,
         references: {
             model:'user',
-            key: "userName"
+            key: "id"
         }
     }
 

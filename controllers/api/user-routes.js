@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.dbUserData = id
 
       res.status(200).json(dbUserData);
     });
@@ -52,6 +53,7 @@ console.log(req.body.password)
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.id = dbUserData.id
 
       res
         .status(200)
@@ -76,18 +78,22 @@ router.post('/logout', (req, res) => {
 
 //Get User Profile
 router.get('/profile', withAuth, async (req, res) => {
+  console.log('Profile Route Hit')
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.id, {
       attributes: { exclude: ['password'] },
     });
-
+    
     const user = userData.get({ plain: true });
+    console.log(user)
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    // res.render('profile', {
+    //   ...user,
+    //   logged_in: true
+    // });
+    
+    res.json(user)
   } catch (err) {
     res.status(500).json(err);
   }

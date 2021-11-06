@@ -16,13 +16,14 @@ User.init(
       allowNull: false,
       autoIncrement: true,
       unique: true,
+      primaryKey: true,
     },
     
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      primaryKey: true,
+     
       validate: {
         notNull: {
           msg: 'Please enter a valid UserName'

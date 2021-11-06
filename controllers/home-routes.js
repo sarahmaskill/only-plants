@@ -7,9 +7,15 @@ router.get('/', async (req, res) => {
   try {
       const dbPostData = await Post.findAll({
           
-          attributes: ['body', 'roots', 'postedBy'],
+          attributes: ['body', 'roots', 'user_id'],
+          include: [{
+                    model: User,
+                     attributes: ['userName']
+                 }]
+          
           
         });
+        console.log(dbPostData)
         const posts =  dbPostData.map((posts) =>{
         return posts.get({ plain: true })
         });
@@ -33,34 +39,34 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// //Get User Garden
-// router.get('/userGarden', withAuth, (req, res) => {
-//   Plant.findAll({
-//     where:{
-//         user_id: req.session.user_id,
-//     },
-//     attributes:[
-//         'name',
-//         'species',
-//         'waterSchedule',
-//         'outsidePlant',
-//         'lastWatered',
-//         'plantedBy'
-//     ],
-//     include: [{
-//         model: User,
-//         attributes: ['userName']
-//     }]
-//   })
-//   .then(dbPlantData => {
-//       const garden = dbPlantData.map(plant => plant.get({ plain:true }));
-//       res.render('userGarden', {garden, loggedIn: true});
-//   })
-//   .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err)
-//   });
-//  });
+//Get User Garden
+router.get('/userGarden', withAuth, (req, res) => {
+  Plant.findAll({
+    where:{
+        user_id: req.session.id,
+    },
+    attributes:[
+        'name',
+        'species',
+        'waterSchedule',
+        'outsidePlant',
+        'lastWatered',
+        'user_id'
+    ],
+    include: [{
+        model: User,
+        attributes: ['userName']
+    }]
+  })
+  .then(dbPlantData => {
+      const garden = dbPlantData.map(plant => plant.get({ plain:true }));
+      res.render('userGarden', {garden, loggedIn: true});
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
+ });
 
 router.get('/userGarden', (req, res) => {
   res.render('userGarden')

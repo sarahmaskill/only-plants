@@ -8,8 +8,7 @@ const plantData = [
         waterSchedule: 'Every Other Day',
         outsidePlant: false,
         lastWatered: 1,
-        plantedBy: 'Alex'
-        
+        user_id: 1,    
     },
 
     {
@@ -18,7 +17,7 @@ const plantData = [
         waterSchedule: 'Every Other Day',
         outsidePlant: true,
         lastWatered: 1,
-        plantedBy: 'Alex'
+        user_id: 1,
     },
 ]
 

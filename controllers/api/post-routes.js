@@ -17,13 +17,13 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
-//delete posts
-router.delete('/:id', withAuth, async (req, res) => {
+//delete posts //withAuth
+router.delete('/:id', async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
+          // user_id: req.session.user_id,
         },
       });
   

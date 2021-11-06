@@ -3,38 +3,38 @@ const { Plant, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Get 1 User Plant
- router.get('/:id',(req, res) => {
-  Plant.findOne({
-    where:{
-        id: req.params.id
-    },
-    attributes:[
-        'name',
-        'id',
-        'species',
-        'waterSchedule',
-        'outsidePlant',
-        'lastWatered',
-        'plantedBy'
-    ],
-    include: [{
-        model: User,
-        attributes: ['userName']
-    }]
-  })
+//  router.get('/:id',(req, res) => {
+//   Plant.findOne({
+//     where:{
+//         id: req.params.id
+//     },
+//     attributes:[
+//         'name',
+//         'id',
+//         'species',
+//         'waterSchedule',
+//         'outsidePlant',
+//         'lastWatered',
+//         'plantedBy'
+//     ],
+//     include: [{
+//         model: User,
+//         attributes: ['userName']
+//     }]
+//   })
 
-  .then(dbPlantData => {
+//   .then(dbPlantData => {
       
-      const plants = dbPlantData.map(plant => plant.get({ plain:true }));
-      console.log(plants)
+//       const plants = dbPlantData.map(plant => plant.get({ plain:true }));
+//       console.log(plants)
     
-      res.render('userPlantProfile', {plants, loggedIn: true});
-  })
-  .catch(err => {
-      console.log(err);
-      res.status(500).json(err)
-  });
- });
+//       res.render('userPlantProfile', {plants, loggedIn: true});
+//   })
+//   .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err)
+//   });
+//  });
 
 
 
