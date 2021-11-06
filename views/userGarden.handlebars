@@ -1,24 +1,62 @@
 <style>
-.your-garden-text {
-    text-align: center;
-    font-size: 45px;
-    font-weight: bolder;
-    height: 100px;
-    background-color:#f5f8fa;
-    border-radius: 25px;
-    border: 1px solid lightgreen;
-    )
-}
-
+    .your-garden-text {
+        text-align: center;
+        font-size: 45px;
+        font-weight: bolder;
+        height: 100px;
+        background-color: #f5f8fa;
+        border-radius: 25px;
+        border: 1px solid lightgreen;
+        )
+    }
 </style>
 <div class="container-fluid d-flex flex-column">
-<div class="container your-garden-text">
-Your Garden
-</div>
-<div class="row mt-3">
-    
-    {{>plantCard}}
-  
-</div>
+    <div class="container your-garden-text">
+        Your Garden
+    </div>
+    <div class="row mt-3">
+
+        {{>plantCard}}
+
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h3>Add A New Plant:</h3>
+
+            <form class="form new-plant-form">
+                <div class="form-group">
+                    <label for="plant-name">plant name:</label>
+                    <input class="form-input" type="text" id="plant-name" name="plant-name" />
+                </div>
+                <div class="form-group">
+                    <label for="water-schedule">water schedule:</label>
+                    <input class="form-input" type="text" id="water-schedule" name="water-schedule" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+
+
+        </div>
+
+        {{#if Plant.length}}
+        <div class="col-md-6 plant-list">
+            <h3>My Garden</h3>
+
+            {{#each Plants as |Plant|}}
+            <div class="row mb-2">
+                <div class="col-md-8">
+                    <h4><a href="/plant/{{Plant.id}}">{{Plant.name}}</a></h4>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-sm btn-danger" data-id="{{Plant.id}}">DELETE</button>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
 </div>
 
+<script src="./js/plant.js"></script>
