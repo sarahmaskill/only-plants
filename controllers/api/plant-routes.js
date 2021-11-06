@@ -36,34 +36,7 @@ const withAuth = require('../../utils/auth');
   });
  });
 
-//Get User Garden
-router.get('/garden', withAuth, (req, res) => {
-    Plant.findAll({
-      where:{
-          user_id: req.session.user_id,
-      },
-      attributes:[
-          'name',
-          'species',
-          'waterSchedule',
-          'outsidePlant',
-          'lastWatered',
-          'plantedBy'
-      ],
-      include: [{
-          model: User,
-          attributes: ['userName']
-      }]
-    })
-    .then(dbPlantData => {
-        const garden = dbPlantData.map(plant => plant.get({ plain:true }));
-        res.render('userGarden', {garden, loggedIn: true});
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err)
-    });
-   });
+
 
 //add new plant
 router.post('/', async (req, res) => {
