@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // CREATE new user
 router.post('/', withAuth, async (req, res) => {
-  console.log(withAuth)
+  
   if(withAuth){
     try {
       const dbUserData = await User.create({
