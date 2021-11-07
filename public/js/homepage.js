@@ -1,3 +1,9 @@
+const emptyCircle = document.getElementById('emptyCircle')
+console.log(emptyCircle)
+const rootContainer = document.getElementById('roots')
+console.log(rootContainer)
+
+
 
 const newPostBtn = document.getElementById('newPostBtn')
 newPostBtn.addEventListener('click', (e) => {
@@ -23,20 +29,3 @@ const createNewPost = async () => {
 }
 
 
-const logout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert('Failed to log out.');
-  }
-};
-let logOutBtn = document.getElementById('logout')
-console.log(logOutBtn)
-logOutBtn.addEventListener('click', logout)
-      
-     

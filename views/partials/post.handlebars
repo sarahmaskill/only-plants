@@ -66,6 +66,11 @@
   margin-left: 23px;
   color:lightslategray
 }
+.bi-arrow-up-circle {
+  margin-right: 5px;
+  margin-top: 2px;
+ 
+}
 
   </style>
   
@@ -79,8 +84,8 @@
           <blockquote class="block-body">
           {{body}}
           </blockquote>
-        <div class="roots">
-          Roots:{{roots}}
+        <div id='roots'class="roots">
+          <i id='emptyCircle'class="bi bi-arrow-up-circle"></i>Roots:{{roots}}
         </div>
           </div>
           {{!-- {{#if post-image}}
