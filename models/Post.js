@@ -24,6 +24,8 @@ Post.init(
         },
         roots: {
             type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
 
         },
         user_id: {

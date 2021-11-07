@@ -148,7 +148,7 @@ body {
   outline: none;
 }
 
-.tweetBox__tweetButton {
+#newPostBtn {
   background-color: var(--font);
   border: none;
   color: white;

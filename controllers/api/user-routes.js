@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username. Please try again!' });
       return;
     }
-console.log(req.body.password)
+
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -53,7 +53,8 @@ console.log(req.body.password)
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.id = dbUserData.id
+      //dbUserData is person that just signed in
+      req.session.user_id = dbUserData.id
 
       res
         .status(200)
