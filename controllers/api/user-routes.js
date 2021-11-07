@@ -2,6 +2,29 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//Getting one user for weather app display
+router.get('/', withAuth, async (req, res) => {
+  console.log('Get one user profile hit')
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+    
+    const user = userData.get({ plain: true });
+    console.log(user)
+
+    // res.render('profile', {
+    //   ...user,
+    //   logged_in: true
+    // });
+    
+    res.json(user)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // CREATE new user
 router.post('/', withAuth, async (req, res) => {
   
@@ -88,7 +111,7 @@ router.get('/profile', withAuth, async (req, res) => {
   console.log('Profile Route Hit')
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
     

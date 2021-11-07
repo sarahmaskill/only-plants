@@ -9,6 +9,7 @@ rootContainer.addEventListener('click', (e) => {
 
   
 })
+
 function retrieveData (userPick){
   
   
