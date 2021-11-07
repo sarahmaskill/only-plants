@@ -3,26 +3,31 @@ const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // CREATE new user
-router.post('/', async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      userName: req.body.userName,
-      email: req.body.email,
-      password: req.body.password,
-      state: req.body.state,
-      city: req.body.city
-    });
-    console.log(dbUserData)
-
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      req.session.dbUserData = id
-
-      res.status(200).json(dbUserData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+router.post('/', withAuth, async (req, res) => {
+  console.log(withAuth)
+  if(withAuth){
+    try {
+      const dbUserData = await User.create({
+        userName: req.body.userName,
+        email: req.body.email,
+        password: req.body.password,
+        state: req.body.state,
+        city: req.body.city
+      });
+      console.log(dbUserData)
+  
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.dbUserData = id
+  
+        res.status(200).json(dbUserData);
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }else {
+    alert('Please Sign in')
   }
 });
 
@@ -68,6 +73,7 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
+  console.log(req.session.loggedIn)
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
