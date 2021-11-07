@@ -1,13 +1,15 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#plant-name').value.trim();
-    const waterSchedule = document.querySelector('#water-schedule').value.trim();
+    const name = document.getElementById('plant-name').value.trim();
+    const species = document.getElementById('plant-species').value.trim();
+    const waterSchedule = document.getElementById('water-schedule').value.trim();
+   
   
-    if (name && waterSchedule) {
+    if (name && waterSchedule && species) {
       const response = await fetch(`/api/plant`, {
         method: 'POST',
-        body: JSON.stringify({ name, waterSchedule }),
+        body: JSON.stringify({ name, species, waterSchedule }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -41,7 +43,7 @@ const newFormHandler = async (event) => {
     .querySelector('.new-plant-form')
     .addEventListener('submit', newFormHandler);
   
-  document
-    .querySelector('.plant-list')
-    .addEventListener('click', delButtonHandler);
+  // document
+  //   .querySelector('.plant-list')
+  //   .addEventListener('click', delButtonHandler);
   

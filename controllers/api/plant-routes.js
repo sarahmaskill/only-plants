@@ -53,12 +53,12 @@ router.post('/', async (req, res) => {
 });
 
 //delete plant
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const plantData = await Plant.destroy({
       where: {
         id: req.params.id,
-        // user_id: req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
 
