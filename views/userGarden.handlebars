@@ -58,11 +58,26 @@
             <form class="form new-plant-form">
                 <div class="form-group">
                     <label for="plant-name">plant name:</label>
-                    <input class="form-input" type="text" id="plant-name" name="plant-name" />
+                    <input class="form-input" type="text" id="plant-name" name="plant-name"/>
+                </div>
+                <div class="form-group">
+                    <label for= "plant-species">plant species:</label>
+                    <input class="form-input" type="text" id="plant-species" name="plant-species"/>
+                </div>
+                <div>
+                    <label for= "outdoor-plant">Is this an outdoor plant?</label>
+                    <input type="checkbox" id="outdoor-plant" name="outdoor-plant"/>
+                </div>
+                <div>
+
                 </div>
                 <div class="form-group">
                     <label for="water-schedule">water schedule:</label>
                     <input class="form-input" type="text" id="water-schedule" name="water-schedule" />
+                </div>
+                <div class="form-group">
+                    <label for="last-watered">Days since last watered:</label>
+                    <input class="form-input" type="text" id="last-watered" name="last-watered"/>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Create</button>
@@ -82,14 +97,14 @@
 
         </div>
 
-        {{#if Plant.length}}
+        {{!-- {{#if plants.length}} --}}
         <div class="col-md-6 plant-list">
             <h3>My Garden</h3>
 
-            {{#each Plants as |Plant|}}
+    {{#each plants as |plant|}}
             <div class="row mb-2">
                 <div class="col-md-8">
-                    <h4><a href="/plant/{{Plant.id}}">{{Plant.name}}</a></h4>
+                    <h4><a href="/plant/{{plant.id}}">{{plant.name}}</a></h4>
                 </div>
                 <div class="col-md-4">
                     <button class="btn btn-sm btn-danger" data-id="{{Plant.id}}">DELETE</button>
@@ -97,7 +112,7 @@
             </div>
             {{/each}}
         </div>
-        {{/if}}
+        {{!-- {{/if}} --}}
     </div>
 </div>
 
