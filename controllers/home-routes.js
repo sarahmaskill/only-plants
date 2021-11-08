@@ -21,16 +21,16 @@ router.get('/', async (req, res) => {
       
     });
     if (req.session.loggedIn){
-    let currentLoggedInUser = async () => {
-      await User.findByPk(req.session.user_id)}
-    console.log(currentLoggedInUser)
-      console.log('We should be seeing my name')
+      let currentLoggedInUser = await User.findByPk(req.session.user_id)
+      currentLoggedInUser = currentLoggedInUser.get({ plain: true })
+      console.log(currentLoggedInUser)
+      console.log('We should be seeing my data')
       res.render('homepage', {
         post: posts,
         loggedIn: true,
-        userName: currentLoggedInUser
-  
+        userName: currentLoggedInUser.userName
       })
+    
 
     }else {
       res.render('homepage',{
