@@ -107,6 +107,7 @@ router.post('/logout', (req, res) => {
 });
 
 //Get User Profile
+//api/users/profile
 router.get('/profile', withAuth, async (req, res) => {
   console.log('Profile Route Hit')
   try {
@@ -115,15 +116,14 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
     });
     
-    const user = userData.get({ plain: true });
-   
+    
 
     // res.render('profile', {
     //   ...user,
     //   logged_in: true
     // });
-    
-    res.json(user)
+  
+   res.status(200).send(userData)
   } catch (err) {
     res.status(500).json(err);
   }
