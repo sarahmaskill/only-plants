@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
-    console.log(user)
+ 
 
     // res.render('profile', {
     //   ...user,
@@ -37,7 +37,7 @@ router.post('/', withAuth, async (req, res) => {
         state: req.body.state,
         city: req.body.city
       });
-      console.log(dbUserData)
+     
   
       req.session.save(() => {
         req.session.loggedIn = true;
@@ -96,7 +96,7 @@ router.post('/login', async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-  console.log(req.session.loggedIn)
+ 
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -116,7 +116,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
     
     const user = userData.get({ plain: true });
-    console.log(user)
+   
 
     // res.render('profile', {
     //   ...user,
