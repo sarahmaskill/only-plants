@@ -7,7 +7,25 @@
         background-color: #f5f8fa;
         border-radius: 25px;
         border: 1px solid lightgreen;
-        )
+    }
+
+    .btn {
+        background-color: white;
+        border: none;
+        color: black;
+        font-weight: 900;
+        border-radius: 30px;
+        margin-top: 20px;
+        margin-left: auto;
+    }
+
+    .card {
+         background-color: #a1e698;
+         text-align: center;
+    }
+    img {
+        width: 50%;
+        height: auto;
     }
 </style>
 {{!-- <style>
@@ -22,34 +40,34 @@
 
 <div class="container-fluid d-flex flex-column">
     <div class="container your-garden-text">
-        Your Garden
+        <img src="/assets/transparentMyGarden.png" alt="onlyPlants My Garden Logo">
     </div>
     <br>
-<div>
+    <div>
         <script>
-        window.addEventListener('load', function () {
-            document.querySelector('input[type="file"]').addEventListener('change', function () {
-                if (this.files && this.files[0]) {
-                    var img = document.querySelector('img');
-                    img.onload = () => {
-                        URL.revokeObjectURL(img.src);
+            window.addEventListener('load', function () {
+                document.querySelector('input[type="file"]').addEventListener('change', function () {
+                    if (this.files && this.files[0]) {
+                        var img = document.querySelector('img');
+                        img.onload = () => {
+                            URL.revokeObjectURL(img.src);
+                        }
+                        console.log(this.files)
+                        img.src = URL.createObjectURL(this.files[0]);
                     }
-                    console.log(this.files)
-                    img.src = URL.createObjectURL(this.files[0]);
-                }
+                });
             });
-        });
-    </script>
-    <input type='file' />
-    </br><img id="myImg" src="#" alt="your image" height=200 width=100>
-</div>
+        </script>
+        <input type='file' />
+        </br><img id="myImg" src="#" alt="your image" height=200 width=100>
+    </div>
     <div class="row mt-3">
 
         {{>plantCard}}
 
     </div>
     <div class="row mt-4">
-        <div class="col-md-6">
+        <div class="col-md-6 card">
             <h3>Add A New Plant:</h3>
 
             <form class="form new-plant-form">
@@ -80,19 +98,18 @@
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
-
-            <div class="card mt-5">
-                <div class="tweetBox">
-                    <form>
-                        <div class="tweetbox__input">
-                            <img src="img_avatar.png" alt="Avatar" class="avatar">
-                            <input type="text" placeholder="Personal Post" />
-                        </div>
-                        <button class="tweetBox__tweetButton">Plant Me</button>
-                    </form>
-                </div>
-
+        </div>
+        <div class="card mt-5">
+            <div class="tweetBox">
+                <form>
+                    <div class="tweetbox__input">
+                        <img src="img_avatar.png" alt="Avatar" class="avatar">
+                        <input type="text" placeholder="Personal Post" />
+                    </div>
+                    <button class="tweetBox__tweetButton">Plant Me</button>
+                </form>
             </div>
+
         </div>
     </div>
 

@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 //pull posts for front page
 router.get('/', async (req, res) => {
-  
+
   try {
     const dbPostData = await Post.findAll({
 
@@ -18,36 +18,29 @@ router.get('/', async (req, res) => {
     });
     const posts = dbPostData.map((posts) => {
       return posts.get({ plain: true })
-      
+
     });
-    if (req.session.loggedIn){
+    if (req.session.loggedIn) {
       let currentLoggedInUser = await User.findByPk(req.session.user_id)
       currentLoggedInUser = currentLoggedInUser.get({ plain: true })
-      
-      
+
       res.render('homepage', {
         post: posts,
         loggedIn: true,
         userName: currentLoggedInUser.userName
       })
-    
-
-    }else {
-      res.render('homepage',{
-        post:posts,
+    } else {
+      res.render('homepage', {
+        post: posts,
       })
     }
-
   } catch (err) {
-    
     res.status(500).json(err);
   }
 });
 
-
-
+//load login page
 router.get('/login', (req, res) => {
-
   res.render('login');
 });
 
@@ -69,9 +62,13 @@ router.get('/userGarden', withAuth, async (req, res) => {
     const plants = plantData.map((plant) =>
       plant.get({ plain: true }));
 
+      let currentLoggedInUser = await User.findByPk(req.session.user_id)
+      currentLoggedInUser = currentLoggedInUser.get({ plain: true })
+      
     res.render('userGarden', {
       plants,
       logged_in: true,
+      userName: currentLoggedInUser.userName
     });
   } catch (err) {
     res.status(500).json(err);
