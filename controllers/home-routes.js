@@ -2,9 +2,9 @@ const { User, Plant, Post } = require('../models')
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
-//pull posts for front page.
-//This Generates all the posts for the front page as well as text at the top that indicates if the user is signed in or not!
+//pull posts for front page
 router.get('/', async (req, res) => {
+  
   try {
     const dbPostData = await Post.findAll({
 
@@ -21,12 +21,14 @@ router.get('/', async (req, res) => {
       
     });
     if (req.session.loggedIn){
+    let currentLoggedInUser = async () => {
+      await User.findByPk(req.session.user_id)}
+    console.log(currentLoggedInUser)
       console.log('We should be seeing my name')
       res.render('homepage', {
         post: posts,
         loggedIn: true,
-        userName: posts[0].user.userName
-        
+        userName: currentLoggedInUser
   
       })
 
