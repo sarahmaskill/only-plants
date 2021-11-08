@@ -1,5 +1,3 @@
-const { response } = require("express")
-
 
 
 const emptyCircle = document.getElementById('emptyCircle')
@@ -11,16 +9,17 @@ const userCity = async () => {
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
   })
-  return finalResponse = await response.json()
+   response = await response.json()
+   retrieveData(response)
 }
 
 
 
-function retrieveData (userPick){
+function retrieveData (response){
+  console.log(response.city)
   
-  
-  var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + userPick + "&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
-  
+  var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + response.city + "&units=imperial&appid=18c94be380dd6c1b79b8d296cad1794d"
+  fetch(url)
   .then(function (response) {
       if (response.ok){
           
@@ -33,15 +32,9 @@ function retrieveData (userPick){
   .then(function (data) {
       
       updateHTMLPage(data)
-  }
-  )
-  if(userLocationInput){
-      userLocationInput.value = ''
-      userLocationInput = ""
-  }
-}   
+  })}   
 function updateHTMLPage(data) {
-  dateDay1 = document.getElementById('dateDay1').innerText = moment().add(1, 'days').format('L')
+  
     day1Temp = document.getElementById('day1Temp').innerText = data.list[1].main.temp
     day1Wind = document.getElementById('day1Wind').innerText = data.list[1].wind.speed + 'MPH'
     day1Humidity = document.getElementById('day1Humidity').innerText = data.list[1].main.humidity + '%'
