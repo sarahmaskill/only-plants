@@ -19,6 +19,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/plant');
       } else {
+        console.log(outsidePlant)
         alert('Failed to create plant');
       }
     }
