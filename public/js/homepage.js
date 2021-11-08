@@ -1,3 +1,5 @@
+const { response } = require("express")
+
 
 
 const emptyCircle = document.getElementById('emptyCircle')
@@ -5,19 +7,13 @@ const emptyCircle = document.getElementById('emptyCircle')
 const rootContainer = document.querySelectorAll('roots')
 
 const userCity = async () => {
-  const response = await fetch('/api/users/profile', {
+  let response = await fetch('/api/users/profile', {
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
   })
-  if(response.ok){
-    console.log('It was a good response')
-    console.log(response.text())
-    
-  }else {
-    console.log(e)
-  }
-
+  return finalResponse = await response.json()
 }
+
 
 
 function retrieveData (userPick){
