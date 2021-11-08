@@ -10,7 +10,7 @@
         )
     }
 </style>
- {{!-- <style>
+{{!-- <style>
     /* Image Designing Propoerties */
     .thumb {
         height: 75px;
@@ -24,28 +24,25 @@
     <div class="container your-garden-text">
         Your Garden
     </div>
-
- <script>
- window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-          var img = document.querySelector('img');
-          img.onload = () => {
-              URL.revokeObjectURL(img.src);  
-          }
-        console.log(this.files)
-        img.src = URL.createObjectURL(this.files[0]); 
-      }
-  });
-
- });
-
-</script> 
-
-
-<input type='file' />
-</br><img id="myImg" src="#" alt="your image" height=200 width=100>
-
+    <br>
+<div>
+        <script>
+        window.addEventListener('load', function () {
+            document.querySelector('input[type="file"]').addEventListener('change', function () {
+                if (this.files && this.files[0]) {
+                    var img = document.querySelector('img');
+                    img.onload = () => {
+                        URL.revokeObjectURL(img.src);
+                    }
+                    console.log(this.files)
+                    img.src = URL.createObjectURL(this.files[0]);
+                }
+            });
+        });
+    </script>
+    <input type='file' />
+    </br><img id="myImg" src="#" alt="your image" height=200 width=100>
+</div>
     <div class="row mt-3">
 
         {{>plantCard}}
@@ -58,15 +55,15 @@
             <form class="form new-plant-form">
                 <div class="form-group">
                     <label for="plant-name">plant name:</label>
-                    <input class="form-input" type="text" id="plant-name" name="plant-name"/>
+                    <input class="form-input" type="text" id="plant-name" name="plant-name" />
                 </div>
                 <div class="form-group">
-                    <label for= "plant-species">plant species:</label>
-                    <input class="form-input" type="text" id="plant-species" name="plant-species"/>
+                    <label for="plant-species">plant species:</label>
+                    <input class="form-input" type="text" id="plant-species" name="plant-species" />
                 </div>
                 <div>
-                    <label for= "outdoor-plant">Is this an outdoor plant?</label>
-                    <input type="checkbox" id="outdoor-plant" name="outdoor-plant" value="true"/>
+                    <label for="outdoor-plant">Is this an outdoor plant?</label>
+                    <input type="checkbox" id="outdoor-plant" name="outdoor-plant" value="true" />
                 </div>
                 <div>
 
@@ -77,44 +74,27 @@
                 </div>
                 <div class="form-group">
                     <label for="last-watered">Days since last watered:</label>
-                    <input class="form-input" type="number" id="last-watered" name="last-watered"/>
+                    <input class="form-input" type="number" id="last-watered" name="last-watered" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
 
-<div class="card mt-5">
-<div class="tweetBox">
-        <form>
-          <div class="tweetbox__input">
-          <img src="img_avatar.png" alt="Avatar" class="avatar">
-            <input type="text" placeholder="Personal Post" />
-          </div>
-          <button class="tweetBox__tweetButton">Plant Me</button>
-        </form>
-      </div>
-
-        </div>
-
-        {{!-- {{#if plants.length}} --}}
-        <div class="col-md-6 plant-list">
-            <h3>My Garden</h3>
-
-    {{#each plants as |plant|}}
-            <div class="row mb-2">
-                <div class="col-md-8">
-                    <h4><a href="api/plant/{{plant.id}}">{{plant.name}}</a></h4>
+            <div class="card mt-5">
+                <div class="tweetBox">
+                    <form>
+                        <div class="tweetbox__input">
+                            <img src="img_avatar.png" alt="Avatar" class="avatar">
+                            <input type="text" placeholder="Personal Post" />
+                        </div>
+                        <button class="tweetBox__tweetButton">Plant Me</button>
+                    </form>
                 </div>
-                <div class="col-md-4">
-                    <button class="btn btn-sm btn-danger" data-id="{{Plant.id}}">DELETE</button>
-                </div>
+
             </div>
-            {{/each}}
         </div>
-        {{!-- {{/if}} --}}
     </div>
-</div>
 
 
-<script src="./js/plant.js"></script>
+    <script src="./js/plant.js"></script>

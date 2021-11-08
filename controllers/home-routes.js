@@ -56,14 +56,14 @@ router.get('/userGarden', withAuth, async (req, res) => {
   try {
     const plantData = await Plant.findAll({
       where: {
-        user_id: 1,
+        user_id: req.session.user_id,
       },
       include: [
         {
           model: User,
           attributes: ['userName'],
         },
-      ],
+      ]
     });
 
     const plants = plantData.map((plant) =>
@@ -71,15 +71,12 @@ router.get('/userGarden', withAuth, async (req, res) => {
 
     res.render('userGarden', {
       plants,
-      logged_in: req.session.logged_in
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   };
 });
 
-// router.get('/userGarden', (req, res) => {
-//   res.render('userGarden')
-// })
 
 module.exports = router;

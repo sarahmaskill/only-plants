@@ -1,11 +1,20 @@
-<div class="col-6 mt-2">
-        <div class="card" style="width: 18rem;">
-  {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-  <div class="card-body">
-    
-    <h5 class="card-title">{{name}}</h5>
-    
-    <a href="/plantProfile" class="btn btn-primary">View Plant Profile</a>
-  </div> 
+{{#if plants.length}}
+<div class="col-md-6 plant-list">
+  <h3>{{userName}}'s Garden</h3>
+
+  {{#each plants as |plant|}}
+  <div class="col-6 mt-2">
+    <div class="card" style="width: 18rem;">
+      {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+      <div class="card-body">
+        <h5 class="card-title">{{plant.name}}</h5>
+        <a href="api/plant/{{plant.id}}" class="btn btn-primary">View Plant Profile</a>
+      </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
 </div>
-</div>
+
+{{!-- <button class="btn btn-sm btn-danger" data-id="{{plant.id}}">DELETE</button> --}}
