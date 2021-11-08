@@ -13,10 +13,10 @@ const withAuth = require('../../utils/auth');
       },
    ],
   });
-  const plant = projectData.get({ plain: true });
+  const plant = plantData.get({ plain: true });
 
-  res.render('plant', {
-    ...project,
+  res.render('plantProfile', {
+    plant,
     logged_in: req.session.logged_in
   });
   } catch (err) {

@@ -1,1 +1,27 @@
-{{name}}
+<style>
+    .your-garden-text {
+        text-align: center;
+        font-size: 45px;
+        font-weight: bolder;
+        height: 100px;
+        background-color: #f5f8fa;
+        border-radius: 25px;
+        border: 1px solid lightgreen;
+        )
+    }
+</style>
+
+<div class="container-fluid d-flex flex-column">
+    <div class="container your-garden-text">
+        {{plant.name}}`s Profile
+    </div>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <H3>Name: {{plant.name}}</H3>
+        <H3>Species: {{plant.species}}</H3>
+        <H3>Date Added: {{plant.dateAdded}}</H3>
+        <H3>Water Schedule: {{plant.WaterSchedule}}</H3>
+        <H3>Outside Plant: {{plant.outsidePlant}}</H3>
+        <H3>Days since last Watered: {{plant.lastWatered}}</H3>
+    </div>
+</div>
