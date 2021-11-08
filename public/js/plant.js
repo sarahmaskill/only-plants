@@ -4,12 +4,14 @@ const newFormHandler = async (event) => {
     const name = document.getElementById('plant-name').value.trim();
     const species = document.getElementById('plant-species').value.trim();
     const waterSchedule = document.getElementById('water-schedule').value.trim();
-   
+    const outsidePlant = document.getElementById('outdoor-plant').value.trim()
+    const lastWatered = document.getElementById('last-watered').value.trim();
+
   
-    if (name && waterSchedule && species) {
-      const response = await fetch(`/api/plant`, {
+    if (name && waterSchedule && species && outsidePlant && lastWatered) {
+      const response = await fetch('/api/plant', {
         method: 'POST',
-        body: JSON.stringify({ name, species, waterSchedule }),
+        body: JSON.stringify({ name, species, waterSchedule, outsidePlant, lastWatered }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -18,6 +20,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/plant');
       } else {
+        console.log(outsidePlant)
         alert('Failed to create plant');
       }
     }

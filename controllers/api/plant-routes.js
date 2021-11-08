@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plant, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//Get 1 User Plant
+// Get 1 User Plant
 //  router.get('/:id',(req, res) => {
 //   Plant.findOne({
 //     where:{
