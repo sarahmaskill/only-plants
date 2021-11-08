@@ -10,7 +10,7 @@ router.post('/', withAuth, async (req, res) => {
         user_id: req.session.user_id,
         body: req.body.newPostInput,
       });
-     console.log(newPost)
+     
   
       res.status(200).json(newPost);
     } catch (err) {

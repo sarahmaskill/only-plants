@@ -27,7 +27,7 @@ const withAuth = require('../../utils/auth');
 //add new plant
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
+    
     const newPlant = await Plant.create({
       
       // outsidePlant:false,

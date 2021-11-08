@@ -1,14 +1,24 @@
+
+
 const emptyCircle = document.getElementById('emptyCircle')
-console.log(emptyCircle)
-const rootContainer = document.getElementById('roots')
-console.log(rootContainer)
 
-rootContainer.addEventListener('click', (e) => {
+const rootContainer = document.querySelectorAll('roots')
 
-  console.log('Root Container Clicked')
+const userCity = async () => {
+  const response = await fetch('/api/users/profile', {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+  })
+  if(response.ok){
+    console.log('It was a good response')
+    console.log(response.text())
+    
+  }else {
+    console.log(e)
+  }
 
-  
-})
+}
+
 
 function retrieveData (userPick){
   
@@ -25,7 +35,7 @@ function retrieveData (userPick){
       }
   })
   .then(function (data) {
-      console.log(data)
+      
       updateHTMLPage(data)
   }
   )
@@ -73,3 +83,4 @@ const createNewPost = async () => {
 }
 
 
+userCity()
