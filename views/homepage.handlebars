@@ -1,9 +1,13 @@
-<body>
+
     <div class="feed">
       <div class="feed__header">
-        <h2>Only Plants Feed &amp; Seeds</h2>
+        {{#if loggedIn}}
+        <h2> Welcome Back {{userName}}
+        </h2>
+        {{else}}
+        <h2>Welcome to Only Plants!</h2>
+        {{/if}}
       </div>
-
       <!-- tweetbox starts -->
       <div class="tweetBox">
         <form>
