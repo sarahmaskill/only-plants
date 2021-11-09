@@ -2,27 +2,7 @@ const router = require('express').Router();
 const { Plant, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get 1 User Plant
- router.get('/:id', async (req, res) => {
-  try {
-    const plantData = await Plant.findByPk(req.params.id, {
-    include: [
-      {
-        model: User,
-        attributes: ['userName']
-      },
-   ],
-  });
-  const plant = plantData.get({ plain: true });
 
-  res.render('plantProfile', {
-    plant,
-    logged_in: req.session.logged_in
-  });
-  } catch (err) {
-    res.status(500).json(err);
-  }
- });
 
 //add new plant
 router.post('/', async (req, res) => {
@@ -52,7 +32,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (!projectData) {
+    if (!plantData) {
       res.status(404).json({ message: 'No plant found with this id!' });
       return;
     }

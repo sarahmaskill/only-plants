@@ -75,5 +75,27 @@ router.get('/userGarden', withAuth, async (req, res) => {
   };
 });
 
+// Get 1 User Plant
+router.get('/plant/:id', async (req, res) => {
+  try {
+    const plantData = await Plant.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['userName']
+      },
+   ],
+  });
+  const plant = plantData.get({ plain: true });
+
+  res.render('plantProfile', {
+    plant,
+    logged_in: req.session.logged_in
+  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+ });
+
 
 module.exports = router;

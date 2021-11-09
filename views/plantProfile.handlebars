@@ -13,7 +13,7 @@
 
 <div class="container-fluid d-flex flex-column">
     <div class="container your-garden-text">
-        {{plant.name}}`s Profile
+        {{plant.name}}'s Profile
     </div>
 <div class="row mt-4">
     <div class="col-md-6">
@@ -23,6 +23,8 @@
         <H3>Water Schedule: {{plant.WaterSchedule}}</H3>
         <H3>Outside Plant: {{plant.outsidePlant}}</H3>
         <H3>Days since last Watered: {{plant.lastWatered}}</H3>
-        <button class="btn btn-sm btn-danger" data-id="{{plant.id}}">DELETE</button>
+        <h3>{{plant.id}}</h3>
+        <button class="btn btn-sm btn-danger" id="delete-plant" data-id="{{plant.id}}">DELETE</button>
     </div>
 </div>
+<script src="/js/delete.js"></script>
