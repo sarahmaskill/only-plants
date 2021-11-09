@@ -15,3 +15,6 @@ let logOutBtn = document.getElementById('logout')
 logOutBtn.addEventListener('click', logout)
 
 
+let logOutBtnMobile = document.getElementById('logout-mobile')
+
+logOutBtnMobile.addEventListener('click', logout)
