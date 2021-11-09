@@ -40,4 +40,12 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
+  router.put('/:id', async (req, res) => {
+    try {
+      req.params.id
+    }catch (e){
+
+    }
+  })
+
   module.exports = router;
