@@ -1,8 +1,27 @@
 
 
 const emptyCircle = document.getElementById('emptyCircle')
+const todaysForecast = document.getElementById('todaysForecast')
 
-const rootContainer = document.querySelectorAll('roots')
+
+//javascript document ready 
+window.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed');
+  const rootContainer = document.getElementsByClassName('roots')
+  console.log(rootContainer.length)
+
+  for(let i = 0; i < rootContainer.length; i++){
+    rootContainer[i].addEventListener('click', (e) => {
+    rootContainer[i].style.color = 'Green'
+    
+
+     
+    })
+  }
+  console.log(typeof rootContainer)
+    })
+
+
 
 const userCity = async () => {
   let response = await fetch('/api/users/profile', {
@@ -43,7 +62,7 @@ function updateHTMLPage(data) {
     var iconImage = document.createElement('img')
     iconImage.setAttribute('src', iconUrl)
     iconImage.setAttribute('alt','An icon representative of type of weather for this particular day.')
-    weatherIcon1.appendChild(iconImage)
+    todaysForecast.appendChild(iconImage)
     
 }
 
