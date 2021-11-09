@@ -26,9 +26,9 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // CREATE new user
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   
-  if(withAuth){
+  
     try {
       const dbUserData = await User.create({
         userName: req.body.userName,
@@ -48,11 +48,7 @@ router.post('/', withAuth, async (req, res) => {
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
-    }
-  }else {
-    alert('Please Sign in')
-  }
-});
+}});
 
 // Login
 router.post('/login', async (req, res) => {
