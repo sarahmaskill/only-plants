@@ -23,26 +23,19 @@ router.get('/', async (req, res) => {
   }
 });
 //Getting one post
-router.get('/:id', async (req, res) => {
+//Getting one post
+router.put('/:id', async (req, res) => {
 
   try {
-    const dbPostData = await Post.findAll({
-      where: {
-        id: req.params.id
-      },
-      attributes: ['body', 'roots', 'id'],
-      include: [{
-        model: User,
-        attributes: ['userName']
-      }]
-      
-    });
-    res.json(dbPostData)
+    const postToUpdate = await Post.findByPk(req.params.id);
+    const updatedRoot = await postToUpdate.increment('roots', {by: 1});
+    res.json(updatedRoot)
     
   } catch (err) {
     res.status(500).json(err);
   }
-});
+ 
+})
 
 
 
