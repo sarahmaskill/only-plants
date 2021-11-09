@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     rootContainer[i].style.color = 'Green'
     
 
+
      
     })
   }
