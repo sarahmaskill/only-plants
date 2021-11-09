@@ -5,48 +5,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Only Plants</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+  {{!-- Mobile Optmization --}}
+  <style>
+    @media only screen and (min-width: 701px) {
+
+      /* hide the hamburger */
+      .mobile-sidebar {
+        display: none;
+      }
+
+      /* show all the nav-buttons */
+      .sidebar {
+        display: block;
+      }
+    }
+
+    /* if browser window is small (max-width) */
+
+    @media only screen and (max-width: 700px) {
+
+      /* show everything with the hamburger class */
+      .mobile-sidebar {
+        display: block;
+      }
+
+      /* hide all the nav-buttons */
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="sidebar">
-      <div class="sidebarOption active">
-        <span class="material-icons"> home </span>
-        <a id="home" href="/"><h2>Home</h2></a>
-      </div>
-      
-      <div class="sidebarOption active">
-       <span class="material-icons">yard</span>
-        <a id="myGarden" href="/userGarden"><h2>My Garden</h2></a>
-      </div>
-
-      <div id="logout" class="sidebarOption">
-        <span class="material-icons">lock</span>
-        <h2>Logout</h2>
-      </div>
-
-       <div id="logout" class="sidebarOption">
-        <span class="material-icons">vpn_key</span>
-        <a id="login" href="/login"><h2>Login</h2></a>
-      </div>
+    <div class="sidebarOption active">
+      <span class="material-icons"> home </span>
+      <a id="home" href="/">
+        <h2>Home</h2>
+      </a>
     </div>
 
-     
-  
+    <div class="sidebarOption active">
+      <span class="material-icons">yard</span>
+      <a id="myGarden" href="/userGarden">
+        <h2>My Garden</h2>
+      </a>
+    </div>
+
+    <div id="logout" class="sidebarOption">
+      <span class="material-icons">lock</span>
+      <h2>Logout</h2>
+    </div>
+
+    <div id="logout" class="sidebarOption">
+      <span class="material-icons">vpn_key</span>
+      <a id="login" href="/login">
+        <h2>Login</h2>
+      </a>
+    </div>
+  </div>
+
+  <ul class="mobile-sidebar nav">
+    <li class="nav-item">
+      <a class="nav-link active material-icons" id="home" href="/"> home </a>
+    </li>
+
+    <li class="nav-item">
+      <a  class="nav-link active material-icons" id="myGarden" href="/userGarden">yard</a>
+    </li>
+
+    <li id="logout" class="nav-item">
+      <a class="nav-link active material-icons">lock</a>
+    </li>
+
+    <li id="logout" class="nav-item">
+      <a id="login" href="/login" class="nav-link active material-icons">vpn_key</a>
+    </li>
+  </ul>
+
   {{{body}}}
-  
-       
+
 </body>
 
 <script src="/js/homepage.js"></script>
 <script src="/js/logout.js"></script>
+
 </html>
