@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
 
-      attributes: ['body', 'roots', 'user_id'],
+      attributes: ['body', 'roots', 'user_id', 'id'],
       include: [{
         model: User,
         attributes: ['userName']
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     if (req.session.loggedIn) {
       let currentLoggedInUser = await User.findByPk(req.session.user_id)
       currentLoggedInUser = currentLoggedInUser.get({ plain: true })
-
+      console.log(posts)
       res.render('homepage', {
         post: posts,
         loggedIn: true,

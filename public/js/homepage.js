@@ -1,5 +1,3 @@
-
-
 const emptyCircle = document.getElementById('emptyCircle')
 const todaysForecast = document.getElementById('todaysForecast')
 
@@ -8,16 +6,21 @@ const todaysForecast = document.getElementById('todaysForecast')
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   const rootContainer = document.getElementsByClassName('roots')
-  console.log(rootContainer.length)
+  
 
   for(let i = 0; i < rootContainer.length; i++){
     rootContainer[i].addEventListener('click', (e) => {
-    rootContainer[i].style.color = 'Green'   
-    fetch('/', {
+    rootContainer[i].style.color = 'Green'
+    const postId = e.currentTarget.getAttribute('data-id')
+    console.log(postId)
+    
+    
+  })
+    fetch('/api/post', {
       
       method: 'PUT',
       headers: {'Content-Type': 'application/json'}
-    })
+    
     })
   }
   console.log(typeof rootContainer)
@@ -91,6 +94,7 @@ const createNewPost = async () => {
     alert('Your post request failed');
   }
 }
+
 
 
 userCity()

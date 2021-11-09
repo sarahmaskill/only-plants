@@ -41,7 +41,7 @@ router.delete('/:id', async (req, res) => {
   });
 
   router.put('api/post/', async (req, res) => {
-    try {
+    try { 
       
       
 
