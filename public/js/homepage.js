@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     rootContainer[i].addEventListener('click', (e) => {
     rootContainer[i].style.color = 'Green'
     let postId = e.currentTarget.getAttribute('data-id')
+    window.location.reload()
     addRoot(postId) 
   })
     const addRoot = async (id) =>{
