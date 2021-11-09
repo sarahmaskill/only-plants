@@ -1,7 +1,50 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-//view users posts
+
+//view all user posts
+router.get('/', async (req, res) => {
+
+  try {
+    const dbPostData = await Post.findAll({
+      
+      attributes: ['body', 'roots', 'user_id', 'id'],
+      include: [{
+        model: User,
+        attributes: ['userName'],
+        
+      }],
+      
+    });
+    res.json(dbPostData)
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//Getting one post
+router.get('/:id', async (req, res) => {
+
+  try {
+    const dbPostData = await Post.findAll({
+      where: {
+        id: req.params.id
+      },
+      attributes: ['body', 'roots', 'id'],
+      include: [{
+        model: User,
+        attributes: ['userName']
+      }]
+      
+    });
+    res.json(dbPostData)
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 //create new post 
 router.post('/', withAuth, async (req, res) => {
@@ -25,7 +68,7 @@ router.delete('/:id', async (req, res) => {
       const postData = await Post.destroy({
         where: {
           id: req.params.id,
-          // user_id: req.session.user_id,
+         
         },
       });
   
@@ -40,15 +83,23 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
-  router.put('api/post/', async (req, res) => {
-    try { 
+  router.put(`/:id`,  async (req, res) => { 
+  try {
+    const updatedRoot = await Post.increment('roots', {by: 1},
       
-      
-
-      
-    }catch (e){
-      res.status(500).json(e)
-    }
-  })
-
+      {
+        where: {
+          id: req.params.id
+        },
+        attributes: ['body', 'roots', 'id'],
+        include: [{
+          model: User,
+          attributes: ['userName']
+        }]
+      });
+      res.json(updatedRoot)
+      }catch (err) {
+    res.status(500).json(err);
+  }
+});
   module.exports = router;

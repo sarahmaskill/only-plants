@@ -1,5 +1,6 @@
 const emptyCircle = document.getElementById('emptyCircle')
 const todaysForecast = document.getElementById('todaysForecast')
+ 
 
 
 //javascript document ready 
@@ -11,18 +12,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
   for(let i = 0; i < rootContainer.length; i++){
     rootContainer[i].addEventListener('click', (e) => {
     rootContainer[i].style.color = 'Green'
-    const postId = e.currentTarget.getAttribute('data-id')
-    console.log(postId)
-    
-    
+    let postId = e.currentTarget.getAttribute('data-id')
+    addRoot(postId) 
   })
-    fetch('/api/post', {
+    const addRoot = async (id) =>{
+      await fetch(`/api/post/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
       
-      method: 'PUT',
-      headers: {'Content-Type': 'application/json'}
-    
-    })
-  }
+      })
+      
+    }}
   console.log(typeof rootContainer)
     })
 
