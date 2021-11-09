@@ -20,9 +20,10 @@
     }
 
     .card {
-         background-color: #a1e698;
-         text-align: center;
+        background-color: #a1e698;
+        text-align: center;
     }
+
     img {
         width: 50%;
         height: auto;
@@ -95,23 +96,16 @@
                     <input class="form-input" type="number" id="last-watered" name="last-watered" />
                 </div>
                 <div class="form-group">
+                    <label for="plant-img">Plant Image URL (optional):</label>
+                    <input class="form-input" type="text" id="plant-img" name="plant-img"/>
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
         </div>
-        <div class="card mt-5">
-            <div class="tweetBox">
-                <form>
-                    <div class="tweetbox__input">
-                        <img src="img_avatar.png" alt="Avatar" class="avatar">
-                        <input type="text" placeholder="Personal Post" />
-                    </div>
-                    <button class="tweetBox__tweetButton">Plant Me</button>
-                </form>
-            </div>
-
-        </div>
     </div>
+</div>
 
 
-    <script src="./js/plant.js"></script>
+<script src="./js/plant.js"></script>

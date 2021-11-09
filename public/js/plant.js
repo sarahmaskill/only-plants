@@ -6,11 +6,12 @@ const newFormHandler = async (event) => {
     const waterSchedule = document.getElementById('water-schedule').value.trim();
     const outsidePlant = document.getElementById('outdoor-plant').value.trim()
     const lastWatered = document.getElementById('last-watered').value.trim();
+    const plantImg = document.getElementById('plant-img').value.trim();
   
     if (name && waterSchedule && species && outsidePlant && lastWatered) {
       const response = await fetch("/api/plant", {
         method: 'POST',
-        body: JSON.stringify({ name, species, waterSchedule, outsidePlant, lastWatered }),
+        body: JSON.stringify({ name, species, waterSchedule, outsidePlant, lastWatered, plantImg }),
         headers: {
           'Content-Type': 'application/json',
         },
