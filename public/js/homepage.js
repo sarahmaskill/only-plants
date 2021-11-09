@@ -12,11 +12,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   for(let i = 0; i < rootContainer.length; i++){
     rootContainer[i].addEventListener('click', (e) => {
-    rootContainer[i].style.color = 'Green'
-    
-
-
-     
+    rootContainer[i].style.color = 'Green'   
+    fetch('/', {
+      
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'}
+    })
     })
   }
   console.log(typeof rootContainer)

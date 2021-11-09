@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 //view users posts
 
@@ -40,11 +40,13 @@ router.delete('/:id', async (req, res) => {
     }
   });
 
-  router.put('/:id', async (req, res) => {
+  router.put('/', async (req, res) => {
     try {
-      req.params.id
-    }catch (e){
+      
 
+      
+    }catch (e){
+      res.status(500).json(e)
     }
   })
 
