@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
   console.log('Get one user profile hit')
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.dbUserData.id, {
       attributes: { exclude: ['password'] },
     });
     
