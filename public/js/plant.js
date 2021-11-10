@@ -1,5 +1,3 @@
-console.log('plantjs')
-
 const newFormHandler = async (event) => {
     event.preventDefault();
   
@@ -28,11 +26,24 @@ const newFormHandler = async (event) => {
     }
   };
   
-
+   const delButtonHandler = async (event) => {
+     if (event.target.hasAttribute('data-id')) {
+       const id = event.target.getAttribute('data-id');
+       const response = await fetch(`/api/plant/${id}`, {
+         method: 'DELETE',
+       });
+  
+       if (response.ok) {
+         document.location.replace('/plant');
+       } else {
+         alert('Failed to delete plant');
+       }
+     }
+   };
   
    const displayPlantProfile = async (event) => {
-     if (event.target.hasAttribute("data-id")){
-       const id = event.target.getAttribute("data-id");
+     if (event.target.hasAttribute(`data-id`)){
+       const id = event.target.getAttribute(`data-id`);
        console.log("ID CLICKED"+id)
        const response = await fetch(`/api/plant/${id}`, {
          method: `GET`
@@ -44,13 +55,15 @@ const newFormHandler = async (event) => {
         alert(`Failed to Load plant`)
       }
      }
-   };
+   }
 
    document
      .querySelector('.new-plant-form')
      .addEventListener('submit', newFormHandler);
   
-
+   document
+     .querySelector('.plant-list')
+     .addEventListener('click', delButtonHandler);
 
     document
     .querySelector(`.plpr`)
