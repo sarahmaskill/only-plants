@@ -47,7 +47,7 @@ In Terminal ->
 
 Contributions are always welcome!
 
-Alex Leino, Sarah Maskill, Miguel Garcia, Aldo
+Alex Leino, Sarah Maskill, Miguel Garcia, Aldo Herrera
 
 
 <img width="1792" alt="Screen Shot 2021-11-10 at 6 44 52 PM" src="https://user-images.githubusercontent.com/87445858/141211734-c5ffb508-797a-4866-bd9a-79a024656081.png">
