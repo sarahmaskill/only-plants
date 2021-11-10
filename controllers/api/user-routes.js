@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const nodemailer = require('nodemailer');
 
 //Getting one user for weather app display
 router.get('/', withAuth, async (req, res) => {
@@ -23,12 +24,11 @@ router.get('/', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+  
 });
 
 // CREATE new user
 router.post('/', async (req, res) => {
-  
-  
     try {
       const dbUserData = await User.create({
         userName: req.body.userName,
@@ -37,7 +37,6 @@ router.post('/', async (req, res) => {
         state: req.body.state,
         city: req.body.city
       });
-     
   
       req.session.save(() => {
         req.session.loggedIn = true;
@@ -45,9 +44,33 @@ router.post('/', async (req, res) => {
   
         res.status(200).json(dbUserData);
       });
+
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth:{
+          user:'onlyplants2021@gmail.com',
+          pass:'onlyplants123',
+        }
+      });
+      
+      let mailOptions = {
+        from: 'onlyplants2021@gmail.com',
+        to: req.body.email,
+        subject:'Welcome to Only Plants!',
+        text: 'Thank you for signing up! Remember to water your plants :)'
+      };
+      
+      transporter.sendMail(mailOptions, function(err, data){
+        if(err){
+            console.log('error occured', err)
+        } else {
+            console.log('email sent')
+        }
+      });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
+
 }});
 
 // Login
