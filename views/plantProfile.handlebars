@@ -1,7 +1,7 @@
 <style>
     .your-garden-text {
         text-align: center;
-        font-size: 45px;
+        font-size: 55px;
         font-weight: bolder;
         height: 100px;
         background-color: #f5f8fa;
@@ -9,22 +9,200 @@
         border: 1px solid lightgreen;
         )
     }
+    .btn {
+        background-color: lightgreen;
+        border: none;
+        color: black;
+        font-weight: 900;
+        border-radius: 30px;
+        margin-top: 20px;
+        margin-left: auto;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: white;
+        color: black;
+        font-family: 'DM Mono', monospace;
+    }
+
+    .card-list {
+        display: flex;
+        padding: 3rem;
+        overflow-x: scroll;
+    }
+
+    .card {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        height: 350px;
+        width: 400px;
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+
+    .card {
+        /* ... */
+
+        border-radius: 16px;
+        background: white(81, 238, 81);
+        box-shadow: -1rem 0 3rem lightgreen;
+
+        transition: .2s;
+    }
+
+    .card:hover {
+        transform: translateY(-1rem);
+    }
+
+    .card:hover~.card {
+        transform: translateX(130px);
+    }
+
+
+    .card:not(:first-child) {
+        margin-left: -130px;
+    }
+    .card-author {
+        position: relative;
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        align-items: center;
+        margin: 3rem 0 0;
+    }
+
+    .author-avatar img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        filter: grayscale(100%);
+        margin: 16px 10px;
+    }
+
+    .half-circle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 48px;
+        fill: none;
+        stroke: seagreen;
+        stroke-width: 8;
+        stroke-linecap: round;
+    }
+    .card-header {
+        margin-bottom: auto;
+    }
+
+    .card-header p {
+        font-size: 14px;
+        margin: 0 0 1rem;
+        color: #a1e698;
+    }
+
+    .card-header h2 {
+        font-size: 20px;
+        margin: .25rem 0 auto;
+        cursor: pointer;
+    }
+
+    .card-header h2:hover {
+        background: linear-gradient(90deg,green,darkgreen);
+        text-shadow: none;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .tags {
+        margin: 1rem 0 2rem;
+        padding: .5rem 0 1rem;
+        line-height: 2;
+        margin-bottom: 0;
+    }
+
+    .tags a {
+        font-style: normal;
+        font-weight: 700;
+        font-size: .5rem;
+        color: darkgreen;
+        text-transform: uppercase;
+        font-size: .66rem;
+        border: 3px solid darkgreen;
+        border-radius: 2rem;
+        padding: .2rem .85rem .25rem;
+        position: relative;
+    }
+
+    .tags a:hover {
+        background: linear-gradient(90deg,#ff8a00,#e52e71);
+        text-shadow: none;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-box-decoration-break: clone;
+        background-clip: text;
+        border-color: lightgreen;
+    }
+    
 </style>
 
-<div class="container-fluid d-flex flex-column">
+
+
+
+ <div class="container-fluid d-flex flex-column">
     <div class="container your-garden-text">
         {{plant.name}}'s Profile
-    </div>
-<div class="row mt-4">
+    </div> 
+{{!-- <div class="row mt-4">
     <div class="col-md-6">
         <H3>Name: {{plant.name}}</H3>
         <H3>Species: {{plant.species}}</H3>
         <H3>Date Added: {{plant.dateAdded}}</H3>
-        <H3>Water Schedule: {{plant.WaterSchedule}}</H3>
+        <H3>Water Schedule: {{plant.waterSchedule}}</H3>
         <H3>Outside Plant: {{plant.outsidePlant}}</H3>
         <H3>Days since last Watered: {{plant.lastWatered}}</H3>
         <h3>{{plant.id}}</h3>
         <button class="btn btn-sm btn-danger" id="delete-plant" data-id="{{plant.id}}">DELETE</button>
     </div>
-</div>
+</div> --}} 
+
+<section class="card-list">
+ 
+      <article class="card">
+        <header class="card-header">
+          <p>{{plant.id}}.{{plant.name}}</p>
+          <h2>{{plant.species}}</h2>
+        </header>
+
+        <div class="card-author">
+          <a class="author-avatar" href="#">
+            <img src={{plant.plantImg}} />
+          </a>
+          <svg class="half-circle" viewBox="0 0 106 57">
+            <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+          </svg>
+
+          <div class="author-name">
+            <div class="author-name-prefix">{{plant.dateAdded}}
+                <div>Days since last Watered: {{plant.lastWatered}}
+                    </div>
+            </div>
+           Please Water me {{plant.waterSchedule}}
+          </div>
+        </div>
+        
+        <div class="tags">
+             <button class="btn btn-sm btn-danger" id="delete-plant" data-id="{{plant.id}}">DELETE</button>
+          {{!-- <a href="#">html</a>
+          <a href="#">css</a>
+          <a href="#">web-dev</a> --}}
+        </div>
+      </article>
+
+    
+
+
+ </section>
 <script src="/js/delete.js"></script>
